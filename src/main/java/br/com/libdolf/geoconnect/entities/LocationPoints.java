@@ -7,12 +7,14 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import java.io.Serializable;
+
 @Entity
 @Builder
 @AllArgsConstructor
 @NoArgsConstructor
 @Data
-public class LocationPoints {
+public class LocationPoints implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.UUID)
     private String id;

@@ -24,12 +24,12 @@ public class WorkPlace {
     private String name;
     private Long internCode;
 
-    @OneToOne(fetch = FetchType.LAZY, cascade = CascadeType.PERSIST)
+    @OneToOne(cascade = CascadeType.PERSIST)
     @JoinColumn(name = "locationId")
     private LocationPoints location;
 
     @OneToMany
-    private Set<Employee> employees = new HashSet<>();
+    private List<Employee> employees;
 
 
    public WorkPlaceDTO toDTO(){

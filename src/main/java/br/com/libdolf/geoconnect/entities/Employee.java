@@ -18,8 +18,8 @@ public class Employee {
     private String id;
     private String name;
 
-    @OneToOne(fetch = FetchType.LAZY, cascade = CascadeType.PERSIST)
-    @JoinColumn(name = "locationId")
+    @OneToOne(cascade = CascadeType.PERSIST)
+    @JoinColumn(name = "location_id")
     private LocationPoints location;
 
     @ManyToOne

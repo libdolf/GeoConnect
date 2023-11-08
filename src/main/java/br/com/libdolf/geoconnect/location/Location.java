@@ -5,10 +5,12 @@ import br.com.libdolf.geoconnect.DTOs.LocationPointsDTO;
 import br.com.libdolf.geoconnect.entities.Employee;
 import br.com.libdolf.geoconnect.entities.LocationPoints;
 import br.com.libdolf.geoconnect.entities.WorkPlace;
+import br.com.libdolf.geoconnect.repositories.WorkPlaceRepository;
 import br.com.libdolf.geoconnect.services.WorkPlaceService;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import org.springframework.stereotype.Component;
+import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -16,23 +18,22 @@ import java.util.Set;
 
 //TODO change "WORK PLACE" to other thing
 
-@Component
+@Service
 @AllArgsConstructor
 public class Location {
-    private WorkPlaceService workPlaceService;
+//    private WorkPlaceService workPlaceService;
+    private WorkPlaceRepository repository;
 
     public WorkPlace getBestWorkPlaceByLocation(EmployeeDTO employee){
-        List<WorkPlace> allWorkPlaces = workPlaceService.findAllWorkPlaces();
+        List<WorkPlace> allWorkPlaces = repository.findAll();
 
-        List<WorkPlace> bestWP = new ArrayList<>();
-
-        for (WorkPlace workPlace: allWorkPlaces){
-            Double distance = calculateDistance(workPlace.getLocation(), employee.location());
-            if (distance <= 20.0){
-                bestWP.add(workPlace);
-            }
-        }
-        return bestWP.get(0);
+//        for (WorkPlace workPlace: allWorkPlaces){
+//            double distance = calculateDistance(workPlace.getLocation(), employee.location());
+//            if (distance >= 20000){
+//                allWorkPlaces.remove(workPlace);
+//            }
+//        }
+        return allWorkPlaces.get(0);
     }
 
 

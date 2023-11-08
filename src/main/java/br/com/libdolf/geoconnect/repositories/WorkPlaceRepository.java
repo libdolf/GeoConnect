@@ -6,6 +6,6 @@ import org.springframework.stereotype.Repository;
 //TODO change "WORK PLACE" to other thing
 @Repository
 public interface WorkPlaceRepository extends JpaRepository<WorkPlace, String> {
-    WorkPlace save(WorkPlace workPlace);
+
 
 }
