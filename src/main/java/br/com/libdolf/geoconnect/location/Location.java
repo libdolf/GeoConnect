@@ -14,6 +14,8 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Set;
 
+//TODO change "WORK PLACE" to other thing
+
 @Component
 @AllArgsConstructor
 public class Location {
@@ -21,7 +23,6 @@ public class Location {
 
     public WorkPlace getBestWorkPlaceByLocation(EmployeeDTO employee){
         List<WorkPlace> allWorkPlaces = workPlaceService.findAllWorkPlaces();
-        if (!allWorkPlaces.isEmpty()){
 
         List<WorkPlace> bestWP = new ArrayList<>();
 
@@ -32,7 +33,6 @@ public class Location {
             }
         }
         return bestWP.get(0);
-        }else return null;
     }
 
 
